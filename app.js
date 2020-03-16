@@ -1,6 +1,6 @@
 var app = require('express')();
 var http = require('http').createServer(app); //create server
-var io = require('socket.io')(http) //runing port by passing http (4000)
+var io = require('socket.io')(http)
 
 
 // endpoint to get index.html
@@ -21,10 +21,9 @@ io.on('connection', (socket) => {
     // send a message to everyone except for a certain emitting socket, we have the broadcast flag for emitting from that socket:
     io.emit('chat-message', msg)
   });
-  
 });
 
 // running port 
-http.listen(3000, () =>{
-  console.log('listening on *:3000');
+http.listen(8080, () =>{
+  console.log('listening on *:8080');
 });
